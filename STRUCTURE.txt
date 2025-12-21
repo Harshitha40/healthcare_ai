@@ -1,0 +1,112 @@
+# Healthcare AI System
+# Complete Project Structure
+
+proj/
+├── README.md                      # Main documentation with setup instructions
+├── QUICKSTART.md                  # Quick start guide for beginners
+├── PROMPTS.md                     # LLM prompts documentation
+├── PROJECT_STRUCTURE.md           # This file - detailed structure overview
+│
+├── backend/                       # Python FastAPI Backend
+│   ├── app/
+│   │   ├── __init__.py
+│   │   ├── api/                   # REST API Endpoints
+│   │   │   ├── __init__.py
+│   │   │   ├── upload.py          # File upload endpoint
+│   │   │   ├── ocr.py             # OCR processing endpoint
+│   │   │   ├── clean.py           # Text cleaning endpoint
+│   │   │   ├── summarize.py       # Summarization endpoint
+│   │   │   └── visits.py          # Visit management endpoints
+│   │   │
+│   │   ├── core/                  # Core configuration
+│   │   │   ├── __init__.py
+│   │   │   ├── config.py          # Settings and environment variables
+│   │   │   └── database.py        # Database connection and session
+│   │   │
+│   │   ├── models/                # SQLAlchemy database models
+│   │   │   ├── __init__.py
+│   │   │   ├── patient.py         # Patient model
+│   │   │   ├── visit.py           # Visit model
+│   │   │   ├── document.py        # RawDocument model
+│   │   │   ├── ocr_text.py        # OCRText model
+│   │   │   ├── cleaned_text.py    # CleanedText model
+│   │   │   └── summary.py         # Summary model
+│   │   │
+│   │   ├── schemas/               # Pydantic schemas for validation
+│   │   │   ├── __init__.py
+│   │   │   ├── patient.py
+│   │   │   ├── visit.py
+│   │   │   ├── document.py
+│   │   │   ├── ocr.py
+│   │   │   ├── cleaned.py
+│   │   │   └── summary.py
+│   │   │
+│   │   └── services/              # Business logic services
+│   │       ├── __init__.py
+│   │       ├── ocr_service.py     # PaddleOCR integration
+│   │       ├── llm_service.py     # Groq LLM integration
+│   │       └── database_service.py # Database operations
+│   │
+│   ├── uploads/                   # File upload directory (created at runtime)
+│   ├── main.py                    # FastAPI application entry point
+│   ├── requirements.txt           # Python dependencies
+│   ├── .env.example               # Environment variables template
+│   └── .gitignore                 # Git ignore file
+│
+├── frontend/                      # React Frontend
+│   ├── public/
+│   ├── src/
+│   │   ├── components/            # React components
+│   │   │   ├── FileUpload.jsx     # File upload component
+│   │   │   ├── ProcessingStatus.jsx # Processing status component
+│   │   │   └── SummaryView.jsx    # Summary display component
+│   │   │
+│   │   ├── services/              # API services
+│   │   │   └── api.js             # Axios API client
+│   │   │
+│   │   ├── styles/                # CSS stylesheets
+│   │   │   ├── index.css
+│   │   │   ├── App.css
+│   │   │   ├── FileUpload.css
+│   │   │   ├── ProcessingStatus.css
+│   │   │   └── SummaryView.css
+│   │   │
+│   │   ├── App.jsx                # Main app component
+│   │   └── main.jsx               # React entry point
+│   │
+│   ├── index.html                 # HTML template
+│   ├── package.json               # Node.js dependencies
+│   ├── vite.config.js             # Vite configuration
+│   └── .gitignore                 # Git ignore file
+│
+└── database/                      # Database scripts
+    └── schema.sql                 # PostgreSQL schema
+
+TECH STACK:
+Backend: Python, FastAPI, PaddleOCR, Groq LLM, PostgreSQL, SQLAlchemy
+Frontend: React, Vite, Axios
+Processing: PaddleOCR for text extraction, Groq API for LLM tasks
+
+FEATURES:
+✅ Upload PDF/Image medical records
+✅ OCR text extraction with PaddleOCR
+✅ LLM-based text cleaning and correction
+✅ Structured medical data extraction
+✅ AI-generated medical summaries
+✅ Side-by-side comparison views
+✅ Modern, responsive UI
+✅ Real-time processing status
+✅ Complete database persistence
+
+SETUP:
+1. Install PostgreSQL, Python 3.8+, Node.js 16+
+2. Create database: CREATE DATABASE healthcare_ai;
+3. Backend: cd backend && pip install -r requirements.txt
+4. Create .env file with DATABASE_URL and GROQ_API_KEY
+5. Frontend: cd frontend && npm install
+6. Run backend: python main.py
+7. Run frontend: npm run dev
+8. Open http://localhost:3000
+
+See README.md for detailed setup instructions.
+See QUICKSTART.md for step-by-step beginner guide.
