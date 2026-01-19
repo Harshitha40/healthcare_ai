@@ -92,7 +92,22 @@ proj/
 - Real-time processing status
 - Side-by-side comparison view
 - Tabbed interface for different views
-- Responsive design
+- Responsiveness Design
+
+### 7. Disease Prediction (XGBoost)
+- **Hybrid AI System**: Combines Machine Learning (XGBoost) with heuristic rules.
+- **Predicts health risks** based on medications and symptoms.
+- **Explainable AI**: Provides detailed reasoning and confidence scores for every prediction.
+- **Analysis**: Identifying high-risk conditions (Cardiac, Respiratory, etc.).
+
+### 8. Personalized Lifestyle Recommendations
+- **AI-Driven Advice**: Generates custom Diet and Exercise plans.
+- **Context-Aware**: Adapts recommendations to patient's specific disease, age, and symptoms.
+- **Actionable**: Provides structured "Eat/Avoid" lists and specific exercises.
+
+### 9. Enhanced Data Formats
+- Robust "Extracted Data" view with fallback parsing.
+- Formatted Text and HTML export options for extracted data.
 
 ## 🛠️ Tech Stack
 
@@ -109,6 +124,22 @@ proj/
 - **Vite** - Build tool
 - **Axios** - HTTP client
 - **Modern CSS** - Styling
+
+## 🧠 AI & Models
+
+The system leverages a powerful combination of models:
+
+- **OCR**: PaddleOCR for high-accuracy text extraction from medical images.
+- **LLM**: Groq (Llama-3 models) for:
+  - Text Cleaning & Correction.
+  - Medical Summarization.
+  - Lifestyle Recommendations.
+- **Machine Learning**: XGBoost (Gradient Boosting) for:
+  - **Disease Prediction**: Trained on `Medicine_Details.csv` (~4.3MB dataset).
+  - Uses TF-IDF vectorization on aggregated medication/symptom text.
+  - Achieves high accuracy on multi-class disease classification.
+
+> 📘 **Deep Dive**: For full details on the ML architecture, dataset, and training process, see [model.md](model.md).
 
 ## 📋 Prerequisites
 
@@ -338,6 +369,9 @@ pip install paddleocr==2.7.0.3
 - groq==0.4.2
 - sqlalchemy==2.0.25
 - psycopg2-binary==2.9.9
+- xgboost==2.0.3
+- scikit-learn==1.4.0
+- pandas==2.2.0
 
 ### Frontend Key Dependencies
 - react==18.2.0
